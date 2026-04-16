@@ -24,16 +24,17 @@
   <label for="txtTask2Word">Type a word:</label>
   <input type="text" id="txtTask2Word" value="" style="width: 10em"> (hit enter!)
   <p id="txtTask2Output">Number of words = 0</p>
+  <p id="words-added">Words: </p>
 </fieldset>
 <p></p>
 <fieldset>
   <legend>Task 3: Text</legend>
   <p>Check one or more as you please</p>
-  <label><input type="checkbox" name="chkTask3" value="1">1: Cat is an animal!<br/></label>
-  <label><input type="checkbox" name="chkTask3" value="2">2: Volvo is a car!<br/></label>
-  <label><input type="checkbox" name="chkTask3" value="3">3: Rose is a flower!<br/></label>
-  <label><input type="checkbox" name="chkTask3" value="4">4: Donald Trump is a human being!<br/></label>
-  <label><input type="checkbox" name="chkTask3" value="5">5: Dette er en test<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="1" id="checkbox-1">1: Cat is an animal!<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="2" id="checkbox-2">2: Volvo is a car!<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="3" id="checkbox-3">3: Rose is a flower!<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="4" id="checkbox-4">4: Donald Trump is a human being!<br/></label>
+  <label><input type="checkbox" name="chkTask3" value="5" id="checkbox-5">5: Dette er en test<br/></label>
   <input type="button" id="cmbTask3CheckAnswer" value="Check Answer!"><br/>
   <p id="txtTask3Output"></p>
 </fieldset>
@@ -97,8 +98,18 @@
   </div>
 </fieldset>
 <ol>
-  <li>[Write the question here, and copy this for more questions]</li>
-  <p>[Write your answer here, and copy this for more answers]</p>
+  <li>In this assignment, we use the DOM. Explain how this library can help us develop interactive web
+pages.</li>
+  <p>Technically this is not a library but an API. Regardless, we can use the DOM to allow JavaScript to grab, manipulate, add or delete elements, classes, and behaviors within an HTML file. This adds dynamic behavior and interactivity</p>
+  <li>What is an event? Simply explain what happens when we add an event listener to an object.
+</li>
+  <p>An event is simply a thing that happens. The way we utilize events is by adding eventlistener, JavaScript will then run code based off of different events that take place, for example something being loaded, the clock of a key button or a mouse, or the position of amouse</p>
+  <li>Sometimes we need to use an event object to get data from the event. Explain how this event
+object is structured, don't explain all functions or attributes. Try to explain, for example, how to
+retrieve data from a keyboard or mouse.</li>
+  <p>Event objects are created when certain events occures, adding eventlisteners then passes the event into a function that runs upon retrieving this information. An example of this can be the location of a mouse, or which key has been pressed, affecting how the event function runs.</p>
+  <li>Explain the main difference between DOM id and DOM name. Can we have identical IDs?</li>
+  <p>IDs are used to identify a unique element in the HTML file. There can not be more than one object with the same ID. A name meanwhile is used to refer to all elements with that name, making it easier to group elements together.</p>
 </ol>
 <script type="module" src="./task_4-3.mjs" defer></script>
 </body>
