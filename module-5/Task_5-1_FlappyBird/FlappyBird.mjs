@@ -19,7 +19,8 @@ const SpriteInfoList = {
   hero2:        { x: 0   , y: 569 , width: 34   , height: 24  , count: 4  },
   hero3:        { x: 0   , y: 593 , width: 34   , height: 24  , count: 4  },
   obstacle:     { x: 0   , y: 0   , width: 52   , height: 320 , count: 4  },
-  background:   { x: 246 , y: 0   , width: 576  , height: 512 , count: 2  },
+  background:   { x: 246 , y: 0   , width: 576  , height: 512 , count: 1  },
+  nightBG:      { x: 822 , y: 0   , width: 576  , height: 512 , count: 1  },
   flappyBird:   { x: 0   , y: 330 , width: 178  , height: 50  , count: 1  },
   ground:       { x: 246 , y: 512 , width: 1152 , height: 114 , count: 1  },
   numberSmall:  { x: 681 , y: 635 , width: 14   , height: 20  , count: 10 },
@@ -34,10 +35,13 @@ const SpriteInfoList = {
 export const EGameStatus = { idle: 0, countDown: 1, gaming: 2, heroIsDead: 3, gameOver: 4, state: 0 };
 const background = new TBackground(spcvs, SpriteInfoList);
 export const hero = new THero(spcvs, SpriteInfoList.hero1);
-const obstacles = [];
-const baits = [];
+export const obstacles = [];
+export const baits = [];
 export const menu = new TMenu(spcvs, SpriteInfoList);
 let obstaclePassed = false;
+export let isSoundOn = true;
+export let isDayTime = 1; // 1 = true, 0 = false
+export const highScores = [];
 
 //--------------- Functions ----------------------------------------------//
 export function startGame() {
@@ -143,14 +147,17 @@ function onKeyDown(aEvent) {
 } // end of onKeyDown
 
 function setSoundOnOff() {
-  // Mute or unmute the game sound based on checkbox
+  isSoundOn = !isSoundOn;
 } // end of setSoundOnOff
 
-function setDayNight(aEvent) {
-  // Set day or night mode based on radio buttons
-  // Day mode is when value is 1, night mode is 0, you can use this as a boolean, 1=true, 0=false
-  // e.g., isDayMode = (aEvent.target.value == 1);
-  console.log(`Day/Night mode changed: ${aEvent.target.value}`);
+function setDayNight(aEvent) { // aEvent.target.value is passed as a string
+  if (aEvent.target.value === "1") {
+    background.changeDayTime(spcvs, SpriteInfoList);
+  } else if (aEvent.target.value === "0") {
+    background.changeNightTime(spcvs, SpriteInfoList);
+  } else {
+    console.log(`Error, aEvent.target.value is not "1" or "0", value: ${aEvent.target.value}`)
+  }
 } // end of setDayNight
 
 //--------------- Main Code ----------------------------------------------//

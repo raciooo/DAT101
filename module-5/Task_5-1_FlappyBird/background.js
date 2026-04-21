@@ -19,6 +19,14 @@ export class TBackground{
     this.#spriteGround.draw();
   }
 
+  changeDayTime(aSpcvs, aSPI) {
+    this.#spriteBackground = new TSprite(aSpcvs,aSPI.background, 0, 0);
+  }
+
+  changeNightTime(aSpcvs, aSPI) {
+    this.#spriteBackground = new TSprite(aSpcvs, aSPI.nightBG, 0, 0);
+  }
+
   animate(){
     const x = this.#spriteGround.x + (this.#spriteGround.width / 2);
     if(x < 5){
